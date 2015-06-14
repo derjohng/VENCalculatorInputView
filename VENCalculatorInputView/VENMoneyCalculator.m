@@ -64,6 +64,7 @@
         [_numberFormatter setLocale:self.locale];
         [_numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         [_numberFormatter setCurrencySymbol:@""];
+        [_numberFormatter setMaximumFractionDigits:4];
     }
     return _numberFormatter;
 }
