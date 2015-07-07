@@ -39,7 +39,9 @@
         CGFloat floatExpression = [(NSNumber *)result floatValue];
         if (integerExpression == floatExpression) {
             return [(NSNumber *)result stringValue];
-        } else if (floatExpression >= CGFLOAT_MAX || floatExpression <= CGFLOAT_MIN || isnan(floatExpression)) {
+        } else if (floatExpression >= CGFLOAT_MAX || floatExpression <= -CGFLOAT_MAX || isnan(floatExpression)) {
+            // 201507. CGFLOAT_MIN is zero?? -1345.07 will be problem.
+//            NSLog(@"f:%f max:%f min:%f isnan:%d", floatExpression, CGFLOAT_MAX, CGFLOAT_MIN, isnan(floatExpression));
             return @"0";
         } else {
             NSString *moneyFormattedNumber = [[self numberFormatter] stringFromNumber:@(floatExpression)];
