@@ -3,6 +3,8 @@
 @interface VENMoneyCalculator : NSObject
 
 @property (strong, nonatomic) NSLocale *locale;
+@property (nonatomic) NSUInteger digits;
+
 
 /**
  * Evaluates a mathematical expression containing +, −, ×, and ÷.

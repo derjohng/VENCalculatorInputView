@@ -50,6 +50,7 @@
 
 - (void)venCalculatorTextFieldDidEndEditing {
     NSString *textToEvaluate = [self trimExpressionString:self.text];
+    if (textToEvaluate.length<=0) return;
     NSString *evaluatedString = [self.moneyCalculator evaluateExpression:textToEvaluate];
     if (evaluatedString) {
         self.text = evaluatedString;

@@ -57,6 +57,11 @@
     self.numberFormatter.locale = locale;
 }
 
+- (void)setDigits:(NSUInteger)digits {
+    _digits = digits;
+    self.numberFormatter.maximumFractionDigits = digits;
+}
+
 
 #pragma mark - Private
 
