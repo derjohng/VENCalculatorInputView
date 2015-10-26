@@ -9,4 +9,8 @@
  */
 @property (strong, nonatomic) NSLocale *locale;
 
+- (NSString *)trimExpressionString:(NSString *)expressionString;
+- (NSString *)groupSeparator;
+- (NSString *)replaceGroupSeperatorString:(NSString *)pStr;
+
 @end

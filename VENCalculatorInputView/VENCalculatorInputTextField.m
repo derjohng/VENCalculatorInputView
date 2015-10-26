@@ -103,7 +103,8 @@
  @return The trimmed expression string
  */
 - (NSString *)trimExpressionString:(NSString *)expressionString {
-    NSString *txt = self.text;
+//    NSString *txt = self.text;
+    NSString *txt = expressionString;
     while ([txt length] > 0) {
         NSString *lastCharacterString = [txt substringFromIndex:[txt length] - 1];
         if ([lastCharacterString isEqualToString:@"+"] ||
@@ -112,6 +113,7 @@
             [lastCharacterString isEqualToString:@"÷"] ||
             [lastCharacterString isEqualToString:self.decimalSeparator]) {
             txt = [txt substringToIndex:txt.length - 1];
+            
         }
         else {
             break;
@@ -120,8 +122,16 @@
     return txt;
 }
 
+- (NSString *)replaceGroupSeperatorString:(NSString *)pStr {
+    return [pStr stringByReplacingOccurrencesOfString:self.groupSeparator withString:@""];
+}
+
 - (NSString *)decimalSeparator {
     return [self.locale objectForKey:NSLocaleDecimalSeparator];
+}
+
+- (NSString *)groupSeparator {
+    return [self.locale objectForKey:NSLocaleGroupingSeparator];
 }
 
 @end

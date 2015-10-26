@@ -12,5 +12,6 @@
  * @return The evaluated expression. Returns nil if the expression is invalid.
  */
 - (NSString *)evaluateExpression:(NSString *)expression;
+- (NSNumberFormatter *)numberFormatter;
 
 @end
